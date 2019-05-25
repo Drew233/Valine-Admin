@@ -34,7 +34,7 @@ exports.notice = (comment) => {
         return;
     }
 
-    let emailSubject = '👉 咚！「' + process.env.SITE_NAME + '」上有新评论了';
+    let emailSubject = '👉 Boom！「' + process.env.SITE_NAME + '」have new comments';
     let emailContent =  noticeTemplate({
                             siteName: process.env.SITE_NAME,
                             siteUrl: process.env.SITE_URL,
@@ -54,7 +54,7 @@ exports.notice = (comment) => {
         if (error) {
             return console.log(error);
         }
-        console.log("收到一条评论, 已提醒站长");
+        console.log("Received a comment, reminded webmaster");
     });
 }
 
@@ -68,7 +68,7 @@ exports.send = (currentComment, parentComment)=> {
         || parentComment.get('mail') === process.env.SMTP_USER) {
         return;
     }
-    let emailSubject = '👉 叮咚！「' + process.env.SITE_NAME + '」上有人@了你';
+    let emailSubject = '👉 Boom！「' + process.env.SITE_NAME + '」Someone @ you';
     let emailContent = sendTemplate({
                             siteName: process.env.SITE_NAME,
                             siteUrl: process.env.SITE_URL,
